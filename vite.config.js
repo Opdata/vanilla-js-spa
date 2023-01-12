@@ -4,6 +4,6 @@ module.exports = {
     outDir: '../dist',
   },
   server: {
-    port: 3000,
+    port: 4000,
   },
 };

@@ -1,6 +1,17 @@
-import route from './route';
+import render from './route';
 import store from './store';
 
-console.log('main');
+window.addEventListener('click', (event) => {
+  event.preventDefault();
+  const target = event.target;
 
-// a태그 새로고침되는거 막기
+  if (target.tagName !== 'A') {
+    return;
+  }
+
+  const anchor = target;
+  history.pushState(null, null, anchor.href);
+  render();
+});
+
+console.log('main');

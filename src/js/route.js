@@ -6,7 +6,20 @@ const routes = [
     path: '/',
     component: function () {
       console.log('home component');
-      const home = new Component(app, '<div>home component</div>');
+      const home = new Component(
+        app,
+        `      <div id="write-post">
+      <a href="/write">게시글작성</a>
+    </div>
+    <ul id="post-list">
+      <li class="post">
+        <a href="/post">post 1</a>
+      </li>
+      <li class="post">
+        <a>post 2</a>
+      </li>
+    </ul>`
+      );
       home.render();
     },
   },
@@ -43,14 +56,11 @@ function render() {
   console.log('----render end----');
 }
 
-history.pushState(null, null, location.href);
-
-window.addEventListener('popstate', (event) => {
-  alert('pop');
+window.addEventListener('popstate', () => {
+  render();
 });
 
-window.addEventListener('load', (event) => {
-  event.preventDefault();
+window.addEventListener('load', () => {
   render();
 });
 
