@@ -1,5 +1,4 @@
 import render from './route';
-import store from './store';
 
 window.addEventListener('click', (event) => {
   event.preventDefault();
